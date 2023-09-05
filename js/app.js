@@ -62,10 +62,16 @@ document.getElementById("startingButton").addEventListener("click",function (){
 
 
 const loadProductDetailse = async id => {
-    const url = `https://openapi.programming-hero.com/api/ai/tool/`;
+    const url = `https://openapi.programming-hero.com/api/ai/tools/`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
+    displayProductDetails(data.data.tools);
+}
+
+const displayProductDetails = product => {
+    console.log(product);
+    const modalTitle = document.getElementById("staticBackdropLabel");
+    modalTitle.innerText = product.name;
 }
 
 
