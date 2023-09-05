@@ -44,7 +44,7 @@ const displayProducts = products => {
                       </ol>
                       <h6>${product.name}</h6>
                       <p>${product.published_in}</p>
-                      <button>Detailse</button>
+                      <button onclick = "loadProductDetailse(${product.id})" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Detailse</button>
                       
                     </div>
             </div>
@@ -61,7 +61,12 @@ document.getElementById("startingButton").addEventListener("click",function (){
 })
 
 
-
+const loadProductDetailse = async id => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/`;
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+}
 
 
 
